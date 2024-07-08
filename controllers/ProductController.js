@@ -1,4 +1,4 @@
-const productModel = require('../models/productModel')
+const productModel = require('../models/Product')
 
 
 
@@ -23,19 +23,19 @@ exports.getallProducts = async (req, res) => {
 }
 
 //get by id
-exports.getallProductsById = async (req, res) => {
+exports.getById = async (req, res) => {
     const product = await productModel.findById(req.params.id)
     return res.json(product)
 }
 //put
-exports.updateProducts = async (req, res) => {
+exports.updateProduct = async (req, res) => {
     await productModel.findByIdAndUpdate(req.params.id, req.body)
     return res.json({ message: "Product updated successfully" })
 
 }
 
 //delete
-exports.deleteProducts = async (req, res) => {
+exports.deleteProduct = async (req, res) => {
     await productModel.findByIdAndDelete(req.params.id)
     return res.json({ message: "Product deleted successfully" })
 }
